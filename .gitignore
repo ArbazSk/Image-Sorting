@@ -5,3 +5,4 @@ image/
 test/
 web_scraping/
 __pycache__/
+test_package.py
