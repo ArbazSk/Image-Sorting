@@ -20,43 +20,15 @@ for (x, y, w, h) in faces:
     roi = gray[y:y+h, x:x+w]
 
     id_, conf = recognizer.predict(roi) 
-    if conf>50:
+    if conf>90:
         # print(id_)
-        # print(lables[id_])
+        print(lables[id_])
         cv2.putText(gray, lables[id_], (x,y), cv2.FONT_HERSHEY_PLAIN, 1, (250,255,255), 2)
-    img_ = "image_from_face.png"
-    cv2.imwrite(img_, roi)
+    # img_ = "image_from_face.png"
+    # cv2.imwrite(img_, roi)
 
     cv2.rectangle(gray, (x,y), (x+w,y+h),(250,0,0),2)
     cv2.imshow('Face',gray)
 
 cv2.waitKey()
 cv2.destroyAllWindows()
-
-# capture = cv2.VideoCapture(0)
-# while(True):
-#     ret, frame = capture.read()
-#     gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
-#     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors=5)
-#     for (x, y, w, h) in faces:
-#         roi = gray[y:y+h, x:x+w]
-
-#         id_, conf = recognizer.predict(roi) 
-#         if conf>50:
-#             print(id_)
-#             print(lables[id_])
-#             cv2.putText(frame, lables[id_], (x,y), cv2.FONT_HERSHEY_PLAIN, 1, (250,255,255), 2)
-#         img_ = "image.png"
-#         cv2.imwrite(img_, roi)
-
-#         cv2.rectangle(frame, (x,y), (x+w,y+h),(250,0,0),2)
-        
-
-#     cv2.imshow('Frame', frame)
-
-#     if cv2.waitKey(20) & 0xFF == ord('q'):
-#         break
-
-
-# capture.release()
-# cv2.destroyAllWindows()
