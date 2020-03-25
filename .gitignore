@@ -1,8 +1,8 @@
 pre-trained_data/
 yolo-coco/
 data/
-image/
-test/
+image/*
+test/*
 web_scraping/
 __pycache__/
 test_package.py
