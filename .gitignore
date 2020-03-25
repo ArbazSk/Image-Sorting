@@ -1,2 +1,7 @@
-data/
+pre-trained_data/
 yolo-coco/
+data/
+image/
+test/
+web_scraping/
+__pycache__/
