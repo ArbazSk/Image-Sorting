@@ -16,9 +16,9 @@ lable_id = {}
 current_id = 0
 
 for root, dirs, files in os.walk(image_dir):
-    for file in files:
-            if file.endswith("png") or file.endswith("jpg"):
-                path = os.path.join(root, file)
+    for filename in files:
+            if filename.endswith("png") or filename.endswith("jpg") or filename.endswith('jpeg'):
+                path = os.path.join(root, filename)
                 # print(path)
                 # lable = os.path.basename(os.path.dirname(path)).replace(" ", "-")
                 lable = os.path.basename(root).replace(" ", "-")
