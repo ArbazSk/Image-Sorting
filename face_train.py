@@ -4,7 +4,7 @@ import numpy as np
 import cv2
 import pickle
 
-face_cascade = cv2.CascadeClassifier('data/haarcascades/haarcascade_frontalface_alt.xml')
+face_cascade = cv2.CascadeClassifier('pre-trained_data/haarcascades/haarcascade_frontalface_alt.xml')
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))

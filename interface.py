@@ -13,7 +13,7 @@ import object_detect
 import face_recognition
 
 screen_res = (GetSystemMetrics(0),GetSystemMetrics(1)) #Get system resolution(Windows OS only)
-moveToPath = "f:/testfolder/facefolder"
+moveToPath = "h:/testfolder/facefolder"
 
 class Widget(QWidget):
     def __init__(self, *args, **kwargs):
@@ -31,7 +31,7 @@ class Widget(QWidget):
         layout.addWidget(self.treeview)
         #layout.addWidget(self.listview)
 
-        path = "f:/"
+        path = "h:/"
 
         self.dirModel = QFileSystemModel()
         self.dirModel.setRootPath(QDir().dirName())
@@ -77,12 +77,13 @@ class Widget(QWidget):
         #Scanning all images in a given directory
         for filename in os.listdir(directory):
             if filename.endswith(".jpg") or filename.endswith(".jpeg") or filename.endswith(".png"):
+                # print(filename)
                 faces = face_detect.detect(directory,filename)
                 if faces is ():
                     print("No Faces found in {}".format(filename))
                     object_detected = object_detect.object_det(directory,filename)
                     if object_detected :
-                        make_dir_path = os.path.join("f:/testfolder/objectfolder",object_detected)
+                        make_dir_path = os.path.join("h:/testfolder/objectfolder",object_detected)
                          #moving the image to the destination folder
                         if os.path.exists(make_dir_path):
                         	self.move_to_folder(directory,filename,make_dir_path)
@@ -95,12 +96,13 @@ class Widget(QWidget):
                     if recognized_face :
                         print("Face Recognized")
                          #moving the image to the destination folder
-                        make_dir_path = os.path.join("f:/testfolder/facefolder",recognized_face)
+                        make_dir_path = os.path.join("h:/testfolder/facefolder",recognized_face)
                         if os.path.exists(make_dir_path):
                         	self.move_to_folder(directory,filename,make_dir_path)
                         else:
                         	os.makedirs(make_dir_path)
                         	self.move_to_folder(directory,filename,make_dir_path)
+                    
 
 
 
